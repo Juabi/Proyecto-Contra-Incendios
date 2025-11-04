@@ -230,7 +230,7 @@ namespace Biblioteca
 
             switch (op)
             {
-                case 1: TextUtilities.EscribirLento("Energia de respaldo activado...", 50); break;
+                case 1: TextUtilities.EscribirLento("Energia de respaldo activado.", 50); break;
                 case 0: TextUtilities.EscribirLento("Volviendo...", 50); break;
                 default: Console.WriteLine("\n¡Opción inválida! Intente de nuevo.\n"); Thread.Sleep(1000); break;
             }

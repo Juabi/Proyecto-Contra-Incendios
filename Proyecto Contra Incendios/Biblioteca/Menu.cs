@@ -9,29 +9,7 @@ namespace Biblioteca
 {
     public class Menu
     {
-        public static void Bateria ()
-        {
-            int op = 0;
-            Console.Clear();
-            Console.SetCursorPosition(0, 5);
-            Console.WriteLine("----------------------------------");
-            Console.WriteLine("    Activar Energia de Respaldo   ");
-            Console.WriteLine("----------------------------------");
-            Beeps.Beep1();
-            Console.WriteLine("[1] Activar");
-            Beeps.Beep1();
-            Console.WriteLine("[0] Volver");
-
-            TextUtilities.EscribirLento("Seleccione una opción: ", 50);
-            op = int.Parse(Console.ReadLine());
-
-            switch (op)
-            {
-                case 1: TextUtilities.EscribirLento("Energia de respaldo activado...", 50); break;
-                case 0: TextUtilities.EscribirLento("Volviendo...", 50); break;
-                default: Console.WriteLine("\n¡Opción inválida! Intente de nuevo.\n"); Thread.Sleep(1000); break;
-            }
-        }
+        
         public static void EjecutarMenu()
         {
             int op;
@@ -233,6 +211,29 @@ namespace Biblioteca
                 }
 
             } while (op != 0);
+        }
+        public static void Bateria()
+        {
+            int op = 0;
+            Console.Clear();
+            Console.SetCursorPosition(0, 5);
+            Console.WriteLine("----------------------------------");
+            Console.WriteLine("    Activar Energia de Respaldo   ");
+            Console.WriteLine("----------------------------------");
+            Beeps.Beep1();
+            Console.WriteLine("[1] Activar");
+            Beeps.Beep1();
+            Console.WriteLine("[0] Volver");
+
+            TextUtilities.EscribirLento("Seleccione una opción: ", 50);
+            op = int.Parse(Console.ReadLine());
+
+            switch (op)
+            {
+                case 1: TextUtilities.EscribirLento("Energia de respaldo activado...", 50); break;
+                case 0: TextUtilities.EscribirLento("Volviendo...", 50); break;
+                default: Console.WriteLine("\n¡Opción inválida! Intente de nuevo.\n"); Thread.Sleep(1000); break;
+            }
         }
     }
 }

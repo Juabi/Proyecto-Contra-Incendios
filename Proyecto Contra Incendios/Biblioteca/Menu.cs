@@ -40,8 +40,8 @@ namespace Biblioteca
                     case 0: TextUtilities.EscribirLento("Hasta Luego...", 50); Environment.Exit(op); break;
                     default: Console.WriteLine("\n¡Opción inválida! Intente de nuevo.\n"); Thread.Sleep(1000); break;
                 }
-                // Console.ReadKey(); // Descomentar para esperar un 'Enter'
-                // Console.Clear();   // Descomentar para limpiar la pantalla después de cada selección
+                // Console.ReadKey(); // 
+                // Console.Clear();   // 
             } while (op != 0);
         }
         public static void MonitoreoPisoIndividual()

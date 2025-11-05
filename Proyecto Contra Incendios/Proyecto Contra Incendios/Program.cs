@@ -13,19 +13,6 @@ namespace Proyecto_Contra_Incendios
         static void Main(string[] args)
         {
             Console.ForegroundColor = ConsoleColor.White;
-            //ActualizacionBateria.Energia();
-            //Random rnd = new Random();
-            //int a = rnd.Next(20);
-            //Console.WriteLine($"\ra {a}");
-            //while (true)
-            //{
-            //    a += rnd.Next(4);
-
-            //}
-            //Console.WriteLine($"\ra {a}");
-            
-
-          
 
             TextUtilities.EscribirLento("Iniciando aplicación...", 50);
             Thread.Sleep(1000);

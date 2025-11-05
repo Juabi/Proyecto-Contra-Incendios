@@ -15,9 +15,9 @@ namespace Biblioteca
             {
                 Console.Beep(1000, tiempoEsperaMs);
                 Console.Write(caracter);
-
             }
             Console.WriteLine();
+
         }
     }
 }

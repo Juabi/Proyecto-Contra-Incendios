@@ -14,13 +14,17 @@ namespace Proyecto_Contra_Incendios
         {
             Console.ForegroundColor = ConsoleColor.White;
 
+
+            Console.WriteLine("=======================================================================================================================");
+            Console.WriteLine("                                 |                                                                                     ");
+            Console.WriteLine("---------------------------------|                                                                                     ");
+            Estetica.Gris();
+            Console.SetCursorPosition(0, 1);
             TextUtilities.EscribirLento("Iniciando aplicación...", 50);
+            
             Thread.Sleep(1000);
-
+            
             Menu.EjecutarMenu();
-
-            Beeps.Beep1();
-            TextUtilities.EscribirLento("Aplicación finalizada.", 50);
             
         }
     }

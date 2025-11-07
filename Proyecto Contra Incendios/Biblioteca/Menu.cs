@@ -12,20 +12,30 @@ namespace Biblioteca
         
         public static void EjecutarMenu()
         {
+            //Menu principal
             int op;
             do
             {
+                //ENERGIA.ResBat();
+                //ENERGIA.Massa();
+                
                 Console.Clear();
+                Console.WriteLine("=======================================================================================================================");
+                Console.WriteLine("Menú                             |                                                                                     ");
+                Console.WriteLine("---------------------------------|                                                                                     ");
                 Console.SetCursorPosition(0, 5);
+
+                
+
                 Console.WriteLine("----------------------------------");
                 Console.WriteLine("             Menú SCI             ");
                 Console.WriteLine("----------------------------------");
                 Beeps.Beep1();
                 Console.WriteLine("[1] Monitoreo Del Edificio");
                 Beeps.Beep1();
-                Console.WriteLine("[2] Monitoreo Piso Individual");
+                Console.WriteLine("[2] Monitoreo General");
                 Beeps.Beep1();
-                Console.WriteLine("[3] Energía De Respaldo");
+                Console.WriteLine("[3] Estado de Energía");
                 Beeps.Beep1();
                 Console.WriteLine("[0] Salir");
                 Beeps.Beep1();
@@ -35,55 +45,38 @@ namespace Biblioteca
                 switch (op)
                 {
                     case 1: MenuCompleto();break;
-                    case 2: MonitoreoPisoIndividual(); break;
-                    case 3: Bateria(); break;
-                    case 0: TextUtilities.EscribirLento("Hasta Luego...", 50); Environment.Exit(op); break;
+                    case 2: Monitoreo_General.Totalpisos(); break;
+                    case 3: ENERGIA.Confirmadora(); break;
+                    case 0:
+                        Console.Clear();
+                        Console.WriteLine("=======================================================================================================================");
+                        Console.WriteLine("                                 |                                                                                     ");
+                        Console.WriteLine("---------------------------------|                                                                                     ");
+                        Beeps.Beep1();
+                        Estetica.Gris();
+                        Console.SetCursorPosition(0, 1);
+                        TextUtilities.EscribirLento("Aplicación finalizada.", 50);
+                        Console.SetCursorPosition(0, 7);
+                        Environment.Exit(op); 
+                        break;
                     default: Console.WriteLine("\n¡Opción inválida! Intente de nuevo.\n"); Thread.Sleep(1000); break;
                 }
                 // Console.ReadKey(); // 
                 // Console.Clear();   // 
             } while (op != 0);
         }
-        public static void MonitoreoPisoIndividual()
+        public static void MenuCompleto()
         {
+            //Menu Edificio compoleto
             int op;
+            while(true)
             do
             {
                 Console.Clear();
-                Console.SetCursorPosition(0, 5);
-                
-                Console.WriteLine("----------------------------------");
-                Console.WriteLine("        Monitoreo de Pisos        ");
-                Console.WriteLine("----------------------------------");
-                Beeps.Beep1();
-                Console.WriteLine("[1]Piso 1");
-                Beeps.Beep1();
-                Console.WriteLine("[2]Piso 2");
-                Beeps.Beep1();
-                Console.WriteLine("[3]Piso 3");
-                Beeps.Beep1();
-                Console.WriteLine("[0]Atras");
-
-                TextUtilities.EscribirLento("Seleccione una opción: ", 50);
-                op = int.Parse(Console.ReadLine());
-                switch (op)
-                {
-                    case 1: MenuPiso1(); break;
-                    case 2: MenuPiso2(); break;
-                    case 3: MenuPiso3(); break;
-                    case 0: TextUtilities.EscribirLento("Volviendo...", 50); break;
-                    default: Console.WriteLine("\n¡Opción inválida! Intente de nuevo.\n"); Thread.Sleep(1000); Console.Clear(); break;
-                }
-
-            } while (op != 0);
-        }
-        public static void MenuCompleto()
-        {
-            int op;
-            do
-            {
                 Edificio.Completo();
+                
                 Console.SetCursorPosition(0, 5);
+
                 Console.WriteLine("----------------------------------");
                 Console.WriteLine("        Monitoreo de Pisos        ");
                 Console.WriteLine("----------------------------------");
@@ -100,9 +93,9 @@ namespace Biblioteca
                 op = int.Parse(Console.ReadLine());
                 switch (op)
                 {
-                    case 1: MenuPiso1(); break;
-                    case 2: MenuPiso2(); break;
-                    case 3: MenuPiso3(); break;
+                    case 1: Piso_1.PlantaPiso1(); break;
+                    case 2: Piso_2.PlantaPiso2(); break;
+                    case 3: Piso_3.PlantaPiso3(); break;
                     case 0: TextUtilities.EscribirLento("Volviendo...", 50); EjecutarMenu(); break;
                     default: Console.WriteLine("\n¡Opción inválida! Intente de nuevo.\n"); Thread.Sleep(1000); Console.Clear(); break;
                 }
@@ -110,130 +103,6 @@ namespace Biblioteca
             } while (op != 0);
 
         }
-        public static void MenuPiso1()
-        {
-            int op;
-            do
-            {
-
-                Edificio.Piso1();
-                Console.SetCursorPosition(0, 5);
-                
-                Console.WriteLine("----------------------------------");
-                Console.WriteLine("        Monitoreo de Pisos        ");
-                Console.WriteLine("----------------------------------");
-                Beeps.Beep1();
-                Console.WriteLine("[1]Edificio Completo");
-                Beeps.Beep1();
-                Console.WriteLine("[2]Piso 2");
-                Beeps.Beep1();
-                Console.WriteLine("[3]Piso 3");
-                Beeps.Beep1();
-                Console.WriteLine("[0]Menú Principal ");
-
-                TextUtilities.EscribirLento("Seleccione una opción: ", 50);
-                op = int.Parse(Console.ReadLine());
-                switch (op)
-                {
-                    case 1: MenuCompleto(); break;
-                    case 2: MenuPiso2(); break;
-                    case 3: MenuPiso3(); break;
-                    case 0: TextUtilities.EscribirLento("Volviendo...", 50); EjecutarMenu(); break;
-                    default: Console.WriteLine("\n¡Opción inválida! Intente de nuevo.\n"); Thread.Sleep(1000); Console.Clear(); break;
-                }
-
-            } while (op != 0);
-        }
-        public static void MenuPiso2()
-        {
-            int op;
-            do
-            {
-
-                Edificio.Piso2();
-                Console.SetCursorPosition(0, 5);
-                
-                Console.WriteLine("----------------------------------");
-                Console.WriteLine("        Monitoreo de Pisos        ");
-                Console.WriteLine("----------------------------------");
-                Beeps.Beep1();
-                Console.WriteLine("[1]Edificio Completo");
-                Beeps.Beep1();
-                Console.WriteLine("[2]Piso 1");
-                Beeps.Beep1();
-                Console.WriteLine("[3]Piso 3");
-                Beeps.Beep1();
-                Console.WriteLine("[0]Menú Principal ");
-
-                TextUtilities.EscribirLento("Seleccione una opción: ", 50);
-                op = int.Parse(Console.ReadLine());
-                switch (op)
-                {
-                    case 1: MenuCompleto(); break;
-                    case 2: MenuPiso1(); break;
-                    case 3: MenuPiso3(); break;
-                    case 0: TextUtilities.EscribirLento("Volviendo...", 50); EjecutarMenu(); break;
-                    default: Console.WriteLine("\n¡Opción inválida! Intente de nuevo.\n"); Thread.Sleep(1000); Console.Clear(); break;
-                }
-
-            } while (op != 0);
-        }
-        public static void MenuPiso3()
-        {
-            int op;
-            do
-            {
-
-                Edificio.Piso3();
-                Console.SetCursorPosition(0, 5);
-                
-                Console.WriteLine("----------------------------------");
-                Console.WriteLine("        Monitoreo de Pisos        ");
-                Console.WriteLine("----------------------------------");
-                Beeps.Beep1();
-                Console.WriteLine("[1]Edificio Completo");
-                Beeps.Beep1();
-                Console.WriteLine("[2]Piso 1");
-                Beeps.Beep1();
-                Console.WriteLine("[3]Piso 2");
-                Beeps.Beep1();
-                Console.WriteLine("[0]Menú Principal ");
-
-                TextUtilities.EscribirLento("Seleccione una opción: ", 50);
-                op = int.Parse(Console.ReadLine());
-                switch (op)
-                {
-                    case 1: MenuCompleto(); break;
-                    case 2: MenuPiso1(); break;
-                    case 3: MenuPiso2(); break;
-                    case 0: TextUtilities.EscribirLento("Volviendo...", 50); EjecutarMenu(); break;
-                    default: Console.WriteLine("\n¡Opción inválida! Intente de nuevo.\n"); Thread.Sleep(1000); Console.Clear(); break;
-                }
-
-            } while (op != 0);
-        }
-        public static void Bateria()
-        {
-            int op = 0;
-            Console.Clear();
-            Console.SetCursorPosition(0, 5);
-            Console.WriteLine("----------------------------------");
-            Console.WriteLine("    Activar Energia de Respaldo   ");
-            Console.WriteLine("----------------------------------");
-            Beeps.Beep1();
-            Console.WriteLine("[1] Activar");
-            Beeps.Beep1();
-            Console.WriteLine("[0] Volver");
-
-            TextUtilities.EscribirLento("Seleccione una opción: ", 50);
-            op = int.Parse(Console.ReadLine());
-
-            switch (op)
-            {
-                case 1: TextUtilities.EscribirLento("Energia de respaldo activado.", 50); break;
-                case 0: TextUtilities.EscribirLento("Volviendo...", 50); break;
-                default: Console.WriteLine("\n¡Opción inválida! Intente de nuevo.\n"); Thread.Sleep(1000); break;
-            }
-        }
+        
     }
 }

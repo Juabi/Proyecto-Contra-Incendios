@@ -2,19 +2,62 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Biblioteca
 {
     internal class Edificio
     {
-        public static void Completo ()
+        public static void MenuCompleto()
+        {
+            //Menu Edificio compoleto
+            int op;
+            while (true)
+                do
+                {
+                    Console.Clear();
+                    ENERGIA.ResBat();
+                    Completo();
+                    Console.WriteLine("=======================================================================================================================");
+                    Console.WriteLine("                                 |                                                                                     ");
+                    Console.WriteLine("---------------------------------|                                                                                     ");
+
+                    Console.SetCursorPosition(0, 5);
+
+                    Console.WriteLine("----------------------------------");
+                    Console.WriteLine("        Monitoreo de Pisos        ");
+                    Console.WriteLine("----------------------------------");
+                    Beeps.Beep1();
+                    Console.WriteLine("[1]Piso 1");
+                    Beeps.Beep1();
+                    Console.WriteLine("[2]Piso 2");
+                    Beeps.Beep1();
+                    Console.WriteLine("[3]Piso 3");
+                    Beeps.Beep1();
+                    Console.WriteLine("[0]Atras");
+
+                    TextUtilities.EscribirLento("Seleccione una opción: ", 50);
+                    op = int.Parse(Console.ReadLine());
+                    switch (op)
+                    {
+                        case 1: Piso_1.PlantaPiso1(); break;
+                        case 2: Piso_2.PlantaPiso2(); break;
+                        case 3: Piso_3.PlantaPiso3(); break;
+                        case 0: TextUtilities.EscribirLento("Volviendo...", 50); Menu.EjecutarMenu(); break;
+                        default: Console.WriteLine("\n¡Opción inválida! Intente de nuevo.\n"); Thread.Sleep(1000); Console.Clear(); break;
+                    }
+
+                } while (op != 0);
+
+        }
+        public static void Completo()
         {
             Beeps.Beep1();
-            Console.Clear();
-            Console.WriteLine("============================================================================================================");
-            Console.WriteLine("Edificio");
-            Console.WriteLine("");
+
+            Console.WriteLine("=======================================================================================================================");
+            Console.WriteLine("Edificio                         |                                                                                     ");
+            Console.WriteLine("---------------------------------|                                                                                     ");
             Console.WriteLine("                                            _______________________________________________________________");
             Console.WriteLine("                                           /                                                              /|");
             Console.WriteLine("                                          /                                                              / |");
@@ -41,91 +84,8 @@ namespace Biblioteca
             Console.WriteLine("                                     |  __              |  /                    |              __  |  /");
             Console.WriteLine("                                     | |SE|             | /                     |             |SE| | /");
             Console.WriteLine("                                     |_|__|_____________|/                      |_____________|__|_|/");
-            
-            
-        }
-        public static void Piso1()
-        {
-            Console.Clear();
 
-            Console.WriteLine("============================================================================================================");
-            Console.WriteLine("Piso 1");
-            Console.WriteLine("");
-            Console.WriteLine("                                     ________________________________________________________________");
-            Console.WriteLine("                                     |                    |                    |                    |");
-            Console.WriteLine("                                     |        G101        |        G102        |        G103        |");
-            Console.WriteLine("                                     |                    |                    |                    |");
-            Console.WriteLine("                                     |                    |                    |                    |");
-            Console.WriteLine("                                     |________    ________|________    ________|________    ________|");
-            Console.WriteLine("                                     |                                                            __|");
-            Console.WriteLine("                                     |                                                           | ex");
-            Console.WriteLine("                                     |                    ________ _  _ ________                 | it");
-            Console.WriteLine("                                     |                    |      Elevador      |                 |__");
-            Console.WriteLine("                                     |_______      _______|____________________|_______      _______|");
-            Console.WriteLine("                                     | e    |      |      |                    |      |      | e    |");
-            Console.WriteLine("                                     | m    |      |      |                    |      |      | m    |");
-            Console.WriteLine("                                     | e  e |      |      |                    |      |      | e  e |");
-            Console.WriteLine("                                     | r  x |      |      |                    |      |      | r  x |");
-            Console.WriteLine("                                     | g  i |      |      |                    |      |      | g  i |");
-            Console.WriteLine("                                     | e  t |      |      |                    |      |      | e  t |");
-            Console.WriteLine("                                     | n                  |                    |               n    |");
-            Console.WriteLine("                                     | c                  |                    |               c    |");
-            Console.WriteLine("                                     |_y  __|______|______|                    |______|______|_y  __|");
 
-        }
-        public static void Piso2()
-        {
-            Console.Clear();
-            Console.WriteLine("============================================================================================================");
-            Console.WriteLine("Piso 2");
-            Console.WriteLine("");
-            Console.WriteLine("                                     ________________________________________________________________");
-            Console.WriteLine("                                     |                    |                    |                    |");
-            Console.WriteLine("                                     |        G201        |        G202        |        G203        |");
-            Console.WriteLine("                                     |                    |                    |                    |");
-            Console.WriteLine("                                     |                    |                    |                    |");
-            Console.WriteLine("                                     |________    ________|________    ________|________    ________|");
-            Console.WriteLine("                                     |                                                            __|");
-            Console.WriteLine("                                     |                                                           | ex");
-            Console.WriteLine("                                     |                    ________ _  _ ________                 | it");
-            Console.WriteLine("                                     |                    |      Elevador      |                 |__");
-            Console.WriteLine("                                     |_______      _______|____________________|_______      _______|");
-            Console.WriteLine("                                     | e    |      |      |                    |      |      | e    |");
-            Console.WriteLine("                                     | m    |      |      |                    |      |      | m    |");
-            Console.WriteLine("                                     | e  e |      |      |                    |      |      | e  e |");
-            Console.WriteLine("                                     | r  x |      |      |                    |      |      | r  x |");
-            Console.WriteLine("                                     | g  i |      |      |                    |      |      | g  i |");
-            Console.WriteLine("                                     | e  t |      |      |                    |      |      | e  t |");
-            Console.WriteLine("                                     | n                  |                    |               n    |");
-            Console.WriteLine("                                     | c                  |                    |               c    |");
-            Console.WriteLine("                                     |_y____|______|______|                    |______|______|_y____|");
-        }
-        public static void Piso3()
-        {
-            Console.Clear();
-            Console.WriteLine("============================================================================================================");
-            Console.WriteLine("Piso 3");
-            Console.WriteLine("");
-            Console.WriteLine("                                     ________________________________________________________________");
-            Console.WriteLine("                                     |                    |                    |                    |");
-            Console.WriteLine("                                     |        G301        |                    |        G302        |");
-            Console.WriteLine("                                     |                    |                    |                    |");
-            Console.WriteLine("                                     |                    |                    |                    |");
-            Console.WriteLine("                                     |________    ________|________    ________|________    ________|");
-            Console.WriteLine("                                     |                                                            __|");
-            Console.WriteLine("                                     |                                                           | ex");
-            Console.WriteLine("                                     |                    ________ _  _ ________                 | it");
-            Console.WriteLine("                                     |                    |      Elevador      |                 |__");
-            Console.WriteLine("                                     |_______      _______|____________________|_______      _______|");
-            Console.WriteLine("                                     | e    |      |      |                    |      |      | e    |");
-            Console.WriteLine("                                     | m    |      |      |                    |      |      | m    |");
-            Console.WriteLine("                                     | e  e |      |      |                    |      |      | e  e |");
-            Console.WriteLine("                                     | r  x |      |      |                    |      |      | r  x |");
-            Console.WriteLine("                                     | g  i |      |      |                    |      |      | g  i |");
-            Console.WriteLine("                                     | e  t |      |      |                    |      |      | e  t |");
-            Console.WriteLine("                                     | n                  |                    |               n    |");
-            Console.WriteLine("                                     | c                  |                    |               c    |");
-            Console.WriteLine("                                     |_y____|______|______|                    |______|______|_y____|");
         }
     }
 }

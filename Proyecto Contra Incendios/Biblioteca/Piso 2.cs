@@ -18,34 +18,14 @@ namespace Biblioteca
             ENERGIA.ResBat();
 
             Random rnd = new Random();
-            G201 = rnd.Next(20, 35);
-            G202 = rnd.Next(20, 35);
-            G203 = rnd.Next(20, 35);
+            G201 = rnd.Next(20, 36);
+            G202 = rnd.Next(20, 36);
+            G203 = rnd.Next(20, 36);
 
-            Console.WriteLine("=======================================================================================================================");
-            Console.WriteLine("Piso 2                           |                                                                                     ");
-            Console.WriteLine("---------------------------------|                                                                                     ");
-            Console.WriteLine("                                     ________________________________________________________________");
-            Console.WriteLine("                                     |                    |                    |                    |");
-            Console.WriteLine("                                     |        G201        |        G202        |        G203        |");
-            Console.WriteLine("                                     |                    |                    |                    |");
-            Console.WriteLine("                                     |                    |                    |                    |");
-            Console.WriteLine("                                     |________    ________|________    ________|________    ________|");
-            Console.WriteLine("                                     |                                                            __|");
-            Console.WriteLine("                                     |                                                           | ex");
-            Console.WriteLine("                                     |                    ________ _  _ ________                 | it");
-            Console.WriteLine("                                     |                    |      Elevador      |                 |__");
-            Console.WriteLine("                                     |_______      _______|____________________|_______      _______|");
-            Console.WriteLine("                                     | e    |      |      |                    |      |      | e    |");
-            Console.WriteLine("                                     | m    |      |      |                    |      |      | m    |");
-            Console.WriteLine("                                     | e  e |      |      |                    |      |      | e  e |");
-            Console.WriteLine("                                     | r  x |      |      |                    |      |      | r  x |");
-            Console.WriteLine("                                     | g  i |      |      |                    |      |      | g  i |");
-            Console.WriteLine("                                     | e  t |      |      |                    |      |      | e  t |");
-            Console.WriteLine("                                     | n                  |                    |               n    |");
-            Console.WriteLine("                                     | c                  |                    |               c    |");
-            Console.WriteLine("                                     |_y____|______|______|                    |______|______|_y____|");
+            Estetica.ContunuacionPiso2();
+            Estetica.MapaP2();
             Estetica.Gris();
+
             Console.SetCursorPosition(0, 5);
 
             Console.WriteLine("----------------------------------");
@@ -58,12 +38,14 @@ namespace Biblioteca
             while (true)
             {
 
-                G201 += rnd.Next(-5, 20); G202 += rnd.Next(-5, 20); G203 += rnd.Next(-5, 20);
+                G201 += rnd.Next(-5, 21); 
+                G202 += rnd.Next(-5, 21); 
+                G203 += rnd.Next(-5, 21);
 
                 int H201 = 0, H202 = 0, H203 = 0;
                 //Detec Humo G101
                 if (G201 <= 35) { H201 += rnd.Next(0, 2); }
-                else if (G201 > 35 && G201 < 79) { H201 += rnd.Next(1, 4); }
+                else if (G201 > 35 && G201 <= 79) { H201 += rnd.Next(1, 4); }
                 else if (G201 > 79) { H201 += rnd.Next(3, 7); }
                 //Detec Humo G102
                 if (G202 <= 35) { H202 += rnd.Next(0, 2); }
@@ -79,15 +61,40 @@ namespace Biblioteca
                 General(H201, 47, 7); General(H202, 68, 7); General(H203, 89, 7);
 
                 Thread.Sleep(1000);
-                if (G201 >= 93 || G202 >= 93 || G203 >= 93 || H201 == 6 || H202 == 6 || H203 == 6)
+                if (G201 >= 93 || G202 >= 93 || G203 >= 93 || H201 == 6 || H202 == 6 || H203 == 6 )
                 {
-                    break;
+                    Console.Clear();
+                    if (G201 >= 93)
+                    {
+                        AlarmaPiso2.AlarmaCalor201(); break;
+                    }
+                    else if (G202 >= 93)
+                    {
+                        AlarmaPiso2.AlarmaCalor202(); break;
+                    }
+                    else if (G203 >= 93)
+                    {
+                        AlarmaPiso2.AlarmaCalor203(); break;
+                    }
+                    else if (H201 == 6)
+                    {
+                        AlarmaPiso2.AlarmaHumo201(); break;
+                    }
+                    else if (H202 == 6)
+                    {
+                        AlarmaPiso2.AlarmaHumo202(); break;
+                    }
+                    else if (H203 == 6)
+                    {
+                        AlarmaPiso2.AlarmaHumo203(); break;
+                    }
                 }
 
                 if (Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.D1)
                 {
                     Console.SetCursorPosition(0, 12);
-                    TextUtilities.EscribirLento("Volviendo...", 50); Menu.EjecutarMenu(); break;
+                    TextUtilities.EscribirLento("Volviendo...", 50); 
+                    Menu.EjecutarMenu(); break;
                 }
                 else if (Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.D2)
                 {

@@ -20,31 +20,10 @@ namespace Biblioteca
             Random rnd = new Random();
             G301 = rnd.Next(20, 35); G302 = rnd.Next(20, 35);
 
-
-            Console.WriteLine("=======================================================================================================================");
-            Console.WriteLine("Piso 3                           |                                                                                     ");
-            Console.WriteLine("---------------------------------|                                                                                     ");
-            Console.WriteLine("                                     ________________________________________________________________");
-            Console.WriteLine("                                     |                    |                    |                    |");
-            Console.WriteLine("                                     |        G301        |                    |        G302        |");
-            Console.WriteLine("                                     |                    |                    |                    |");
-            Console.WriteLine("                                     |                    |                    |                    |");
-            Console.WriteLine("                                     |________    ________|________    ________|________    ________|");
-            Console.WriteLine("                                     |                                                            __|");
-            Console.WriteLine("                                     |                                                           | ex");
-            Console.WriteLine("                                     |                    ________ _  _ ________                 | it");
-            Console.WriteLine("                                     |                    |      Elevador      |                 |__");
-            Console.WriteLine("                                     |_______      _______|____________________|_______      _______|");
-            Console.WriteLine("                                     | e    |      |      |                    |      |      | e    |");
-            Console.WriteLine("                                     | m    |      |      |                    |      |      | m    |");
-            Console.WriteLine("                                     | e  e |      |      |                    |      |      | e  e |");
-            Console.WriteLine("                                     | r  x |      |      |                    |      |      | r  x |");
-            Console.WriteLine("                                     | g  i |      |      |                    |      |      | g  i |");
-            Console.WriteLine("                                     | e  t |      |      |                    |      |      | e  t |");
-            Console.WriteLine("                                     | n                  |                    |               n    |");
-            Console.WriteLine("                                     | c                  |                    |               c    |");
-            Console.WriteLine("                                     |_y____|______|______|                    |______|______|_y____|");
+            Estetica.ContunuacionPiso3();
+            Estetica.MapaP3();
             Estetica.Gris();
+
             Console.SetCursorPosition(0, 5);
 
             Console.WriteLine("----------------------------------");
@@ -74,9 +53,25 @@ namespace Biblioteca
                 General(H301, 47, 7); General(H302, 89, 7);
 
                 Thread.Sleep(1000);
-                if (G301 >= 93 || G302 >= 93 || H301 == 6 || H302 == 6)
+                if (G301 >= 93 || G302 >= 93 || H301 == 6 || H302 == 6 )
                 {
-                    break;
+                    Console.Clear();
+                    if (G301 > 93)
+                    {
+                        AlarmaPiso3.AlarmaCalor301(); break;
+                    }
+                    else if (G302 >= 93)
+                    {
+                        AlarmaPiso3.AlarmaCalor302(); break;
+                    }
+                    else if (H301 == 6)
+                    {
+                        AlarmaPiso3.AlarmaHumo301(); break;
+                    }
+                    else if (H302 == 6)
+                    {
+                        AlarmaPiso3.AlarmaHumo302(); break;
+                    }
                 }
 
                 if (Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.D1)

@@ -78,6 +78,8 @@ namespace Biblioteca
                 int H101 = 0, H102 = 0, H103 = 0;
                 int H201 = 0, H202 = 0, H203 = 0;
                 int H301 = 0, H302 = 0;
+
+                //Piso 1
                 //Detec Humo G101
                 if (G101 <= 35){H101 += rnd.Next(0, 2);}
                 else if (G101 > 35 && G101 < 79){ H101 += rnd.Next(1, 4);}
@@ -91,6 +93,7 @@ namespace Biblioteca
                 else if (G103 > 35 && G103 <= 79){ H103 += rnd.Next(1, 4);}
                 else if (G103 > 79) { H103 += rnd.Next(3, 7);}
 
+                //Piso 2
                 //Detec Humo G201
                 if (G201 <= 35) { H201 += rnd.Next(0, 2); }
                 else if (G201 > 35 && G201 < 79) { H201 += rnd.Next(1, 4); }
@@ -104,6 +107,7 @@ namespace Biblioteca
                 else if (G203 > 35 && G203 <= 79) { H203 += rnd.Next(1, 4); }
                 else if (G203 > 79) { H203 += rnd.Next(3, 7); }
 
+                //Piso 3
                 //Detec Humo G301
                 if (G301 <= 35) { H301 += rnd.Next(0, 2); }
                 else if (G301 > 35 && G301 < 79) { H301 += rnd.Next(1, 4); }
@@ -122,9 +126,73 @@ namespace Biblioteca
                 General(H301, 59, 15); General(H302, 74, 15);
 
                 Thread.Sleep(1000);
-                if (G101 >= 93 || G102 >= 93 || G103 >= 93 || G201 >= 93 || G202 >= 93 || G203 >= 93 || G301 >= 93 || G302 >= 93 || H101 == 6 || H102 == 6 || H103 == 6|| H201 == 6 || H202 == 6 || H203 == 6||H301 == 6 || H302 == 6 )
+                if (G101 >= 93 || G102 >= 93 || G103 >= 93 || H101 == 6 || H102 == 6 || H103 == 6 || G201 >= 93 || G202 >= 93 || G203 >= 93 || H201 == 6 || H202 == 6 || H203 == 6 || G301 >= 93 || G302 >= 93 || H301 == 6 || H302 == 6)
                 {
-                    break;
+                    Console.Clear();
+                    if (G101 > 93)
+                    {
+                        AlarmasPiso1.AlarmaCalor101(); break;
+                    }
+                    else if (G102 >= 93)
+                    {
+                        AlarmasPiso1.AlarmaCalor102(); break;
+                    }
+                    else if (G103 >= 93)
+                    {
+                        AlarmasPiso1.AlarmaCalor103(); break;
+                    }
+                    else if (H101 == 6)
+                    {
+                        AlarmasPiso1.AlarmaHumo101(); break;
+                    }
+                    else if (H102 == 6)
+                    {
+                        AlarmasPiso1.AlarmaHumo102(); break;
+                    }
+                    else if (H103 == 6)
+                    {
+                        AlarmasPiso1.AlarmaHumo103(); break;
+                    }
+                    else if (G201 >= 93)
+                    {
+                        AlarmaPiso2.AlarmaCalor201(); break;
+                    }
+                    else if (G202 >= 93)
+                    {
+                        AlarmaPiso2.AlarmaCalor202(); break;
+                    }
+                    else if (G203 >= 93)
+                    {
+                        AlarmaPiso2.AlarmaCalor203(); break;
+                    }
+                    else if (H201 == 6)
+                    {
+                        AlarmaPiso2.AlarmaHumo201(); break;
+                    }
+                    else if (H202 == 6)
+                    {
+                        AlarmaPiso2.AlarmaHumo202(); break;
+                    }
+                    else if (H203 == 6)
+                    {
+                        AlarmaPiso2.AlarmaHumo203(); break;
+                    }
+                    else if (G301 > 93)
+                    {
+                        AlarmaPiso3.AlarmaCalor301(); break;
+                    }
+                    else if (G302 >= 93)
+                    {
+                        AlarmaPiso3.AlarmaCalor302(); break;
+                    }
+                    else if (H301 == 6)
+                    {
+                        AlarmaPiso3.AlarmaHumo301(); break;
+                    }
+                    else if (H302 == 6)
+                    {
+                        AlarmaPiso3.AlarmaHumo302(); break;
+                    }
                 }
 
                 if (Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.D1)

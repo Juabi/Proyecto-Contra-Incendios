@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Threading;
 using System.Net.NetworkInformation;
 using System.Diagnostics.Eventing.Reader;
+using System.Runtime.Serialization.Formatters;
 namespace Biblioteca
 {
     public class Piso_1
@@ -20,34 +21,12 @@ namespace Biblioteca
             ENERGIA.ResBat();
 
             Random rnd = new Random();
-            G101 = rnd.Next(20, 35);
-            G102 = rnd.Next(20, 35);
-            G103 = rnd.Next(20, 35);
-            
+            G101 = rnd.Next(20, 36);
+            G102 = rnd.Next(20, 36);
+            G103 = rnd.Next(20, 36);
 
-            Console.WriteLine("=======================================================================================================================");
-            Console.WriteLine("Piso 1                           |                                                                                     ");
-            Console.WriteLine("---------------------------------|                                                                                     ");
-            Console.WriteLine("                                     ________________________________________________________________");
-            Console.WriteLine("                                     |                    |                    |                    |");
-            Console.WriteLine("                                     |        G101        |        G102        |        G103        |");
-            Console.WriteLine("                                     |                    |                    |                    |");
-            Console.WriteLine("                                     |                    |                    |                    |");
-            Console.WriteLine("                                     |________    ________|________    ________|________    ________|");
-            Console.WriteLine("                                     |                                                            __|");
-            Console.WriteLine("                                     |                                                           | ex");
-            Console.WriteLine("                                     |                    ________ _  _ ________                 | it");
-            Console.WriteLine("                                     |                    |      Elevador      |                 |__");
-            Console.WriteLine("                                     |_______      _______|____________________|_______      _______|");
-            Console.WriteLine("                                     | e    |      |      |                    |      |      | e    |");
-            Console.WriteLine("                                     | m    |      |      |                    |      |      | m    |");
-            Console.WriteLine("                                     | e  e |      |      |                    |      |      | e  e |");
-            Console.WriteLine("                                     | r  x |      |      |                    |      |      | r  x |");
-            Console.WriteLine("                                     | g  i |      |      |                    |      |      | g  i |");
-            Console.WriteLine("                                     | e  t |      |      |                    |      |      | e  t |");
-            Console.WriteLine("                                     | n                  |                    |               n    |");
-            Console.WriteLine("                                     | c                  |                    |               c    |");
-            Console.WriteLine("                                     |_y  __|______|______|                    |______|______|_y  __|");
+            Estetica.ContunuacionPiso1();
+            Estetica.MapaP1();
             Estetica.Gris();
             Console.SetCursorPosition(0, 5);
 
@@ -61,12 +40,14 @@ namespace Biblioteca
             while (true)
             {
                 
-                G101 += rnd.Next(-5, 20);G102 += rnd.Next(-5, 20);G103 += rnd.Next(-5, 20);
+                G101 += rnd.Next(-5, 21);
+                G102 += rnd.Next(-5, 21);
+                G103 += rnd.Next(-5, 21);
 
                 int H101 = 0, H102 = 0, H103 = 0;
                 //Detec Humo G101
                 if (G101<=35){H101 += rnd.Next(0,2);}
-                else if (G101 > 35 && G101 < 79){H101 += rnd.Next(1, 4);}
+                else if (G101 > 35 && G101 <= 79){H101 += rnd.Next(1, 4);}
                 else if (G101 > 79 ){H101 += rnd.Next(3, 7);}
                 //Detec Humo G102
                 if (G102 <= 35){H102 += rnd.Next(0, 2);}
@@ -82,9 +63,35 @@ namespace Biblioteca
                 General(H101, 47, 7);General(H102, 68, 7);General(H103, 89, 7);
 
                 Thread.Sleep(1000);
+                
                 if (G101 >= 93 || G102 >= 93 || G103 >= 93 || H101 == 6 || H102 == 6 || H103 == 6)
                 {
-                    break;
+                    Console.Clear();
+                    if (G101 > 93)
+                    {
+                        AlarmasPiso1.AlarmaCalor101(); break;
+                    }
+                    else if (G102 >= 93)
+                    {
+                        AlarmasPiso1.AlarmaCalor102(); break;
+                    }
+                    else if (G103 >= 93)
+                    {
+                        AlarmasPiso1.AlarmaCalor103(); break;
+                    }
+                    else if (H101 == 6)
+                    {
+                        AlarmasPiso1.AlarmaHumo101(); break;
+                    }
+                    else if (H102 == 6)
+                    {
+                        AlarmasPiso1.AlarmaHumo102(); break;
+                    }
+                    else if (H103 == 6)
+                    {
+                        AlarmasPiso1.AlarmaHumo103(); break;
+                    }
+
                 }
                 
                 if (Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.D1)
@@ -180,6 +187,6 @@ namespace Biblioteca
 
             }
         }
-
+        
     }
 }

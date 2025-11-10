@@ -90,7 +90,7 @@ namespace Biblioteca
                 Console.WriteLine("Menú                             |                                                                                     ");
                 Console.WriteLine("---------------------------------|                                                                                     ");
     
-                    Console.SetCursorPosition(0, 5);
+                Console.SetCursorPosition(0, 5);
                 Console.WriteLine("----------------------------------");
                 Console.WriteLine("            Menú Energía          ");
                 Console.WriteLine("----------------------------------");
@@ -107,7 +107,7 @@ namespace Biblioteca
 
                 switch (op)
                 {
-                    case 1: ActivarRespaldo(); Thread.Sleep(500); break;
+                    case 1: Thread.Sleep(500); ActivarRespaldo();  break;
                     case 0: TextUtilities.EscribirLento("Volviendo...", 50); Menu.EjecutarMenu(); break;
                     default: Console.WriteLine("\n¡Opción inválida! Intente de nuevo.\n"); Thread.Sleep(1000); break;
                 }
@@ -237,7 +237,6 @@ namespace Biblioteca
         public static void ErrorBateria()
         {
 
-            FueraLuces();
             Console.Clear();
             Console.WriteLine("=======================================================================================================================");
             Console.WriteLine("Error                            |                                                                                     ");
@@ -256,7 +255,6 @@ namespace Biblioteca
         }
         public static void ErrorBateria2()
         {
-            FueraLuces();
             Console.Clear();
             Console.WriteLine("=======================================================================================================================");
             Console.WriteLine("Error                            |                                                                                     ");
@@ -338,8 +336,6 @@ namespace Biblioteca
             Menu.EjecutarMenu();
 
         }
-
-
     }
     
 }

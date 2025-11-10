@@ -71,7 +71,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlarmaPiso3.cs" />
+    <Compile Include="AlarmasPiso1.cs" />
     <Compile Include="Beeps.cs" />
+    <Compile Include="AlarmaPiso2.cs" />
     <Compile Include="Edificio.cs" />
     <Compile Include="ENERGIA.cs" />
     <Compile Include="Estetica.cs" />

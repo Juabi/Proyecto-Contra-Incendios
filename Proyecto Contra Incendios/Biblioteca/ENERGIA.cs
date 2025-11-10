@@ -299,7 +299,7 @@ namespace Biblioteca
 
             WaveOut emuladorReproductor = new WaveOut();
 
-            AudioFileReader ubicacionAudio = new AudioFileReader("FueraLuces.mp3");
+            AudioFileReader ubicacionAudio = new AudioFileReader(@"Audio\FueraLuces.mp3");
 
             emuladorReproductor.Init(ubicacionAudio);
 
@@ -310,7 +310,7 @@ namespace Biblioteca
         {
             WaveOut emuladorReproductor = new WaveOut();
 
-            AudioFileReader ubicacionAudio = new AudioFileReader("HolaLuces.mov");
+            AudioFileReader ubicacionAudio = new AudioFileReader(@"Audio\HolaLuces.mov");
 
             emuladorReproductor.Init(ubicacionAudio);
 

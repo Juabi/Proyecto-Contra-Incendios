@@ -13,14 +13,14 @@ namespace Biblioteca
         public static void CALORG301()
         {
             WaveOut emuladorReproductor = new WaveOut();
-            AudioFileReader ubicacionAudio = new AudioFileReader("calor301.mp4");
+            AudioFileReader ubicacionAudio = new AudioFileReader(@"Audio\calor301.mp4");
             emuladorReproductor.Init(ubicacionAudio);
             emuladorReproductor.Play();
         }
         public static void HUMOG301()
         {
             WaveOut emuladorReproductor = new WaveOut();
-            AudioFileReader ubicacionAudio = new AudioFileReader("humo301.mp4");
+            AudioFileReader ubicacionAudio = new AudioFileReader(@"Audio\humo301.mp4");
             emuladorReproductor.Init(ubicacionAudio);
             emuladorReproductor.Play();
         }
@@ -28,14 +28,14 @@ namespace Biblioteca
         public static void CALORG302()
         {
             WaveOut emuladorReproductor = new WaveOut();
-            AudioFileReader ubicacionAudio = new AudioFileReader("calor302.mp4");
+            AudioFileReader ubicacionAudio = new AudioFileReader(@"Audio\calor302.mp4");
             emuladorReproductor.Init(ubicacionAudio);
             emuladorReproductor.Play();
         }
         public static void HUMOG302()
         {
             WaveOut emuladorReproductor = new WaveOut();
-            AudioFileReader ubicacionAudio = new AudioFileReader("humo302.mp4");
+            AudioFileReader ubicacionAudio = new AudioFileReader(@"Audio\humo302.mp4");
             emuladorReproductor.Init(ubicacionAudio);
             emuladorReproductor.Play();
         }
@@ -269,7 +269,7 @@ namespace Biblioteca
         public static void Timbre()
         {
             WaveOut emuladorReproductor = new WaveOut();
-            AudioFileReader ubicacionAudio = new AudioFileReader("Timbre.mp3");
+            AudioFileReader ubicacionAudio = new AudioFileReader(@"Audio\Timbre.mp3");
             emuladorReproductor.Init(ubicacionAudio);
             emuladorReproductor.Play();
         }

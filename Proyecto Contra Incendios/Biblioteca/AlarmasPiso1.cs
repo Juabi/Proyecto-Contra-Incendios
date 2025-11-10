@@ -14,14 +14,14 @@ namespace Biblioteca
         public static void  CALORG101()
         {
             WaveOut emuladorReproductor = new WaveOut();
-            AudioFileReader ubicacionAudio = new AudioFileReader("calor101.mp4");
+            AudioFileReader ubicacionAudio = new AudioFileReader(@"Audio\calor101.mp4");
             emuladorReproductor.Init(ubicacionAudio);
             emuladorReproductor.Play();
         }
         public static void HUMOG101()
         {
             WaveOut emuladorReproductor = new WaveOut();
-            AudioFileReader ubicacionAudio = new AudioFileReader("humo101.mp4");
+            AudioFileReader ubicacionAudio = new AudioFileReader(@"Audio\humo101.mp4");
             emuladorReproductor.Init(ubicacionAudio);
             emuladorReproductor.Play();
         }
@@ -29,28 +29,28 @@ namespace Biblioteca
         public static void CALORG102()
         {
             WaveOut emuladorReproductor = new WaveOut();
-            AudioFileReader ubicacionAudio = new AudioFileReader("calor102.mp4");
+            AudioFileReader ubicacionAudio = new AudioFileReader(@"Audio\calor102.mp4");
             emuladorReproductor.Init(ubicacionAudio);
             emuladorReproductor.Play();
         }
         public static void HUMOG102()
         {
             WaveOut emuladorReproductor = new WaveOut();
-            AudioFileReader ubicacionAudio = new AudioFileReader("humo102.mp4");
+            AudioFileReader ubicacionAudio = new AudioFileReader(@"Audio\humo102.mp4");
             emuladorReproductor.Init(ubicacionAudio);
             emuladorReproductor.Play();
         }
         public static void CALORG103()
         {
             WaveOut emuladorReproductor = new WaveOut();
-            AudioFileReader ubicacionAudio = new AudioFileReader("calor103.mp4");
+            AudioFileReader ubicacionAudio = new AudioFileReader(@"Audio\calor103.mp4");
             emuladorReproductor.Init(ubicacionAudio);
             emuladorReproductor.Play();
         }
         public static void HUMOG103()
         {
             WaveOut emuladorReproductor = new WaveOut();
-            AudioFileReader ubicacionAudio = new AudioFileReader("humo103.mp4");
+            AudioFileReader ubicacionAudio = new AudioFileReader(@"Audio\humo103.mp4");
             emuladorReproductor.Init(ubicacionAudio);
             emuladorReproductor.Play();
         }
